@@ -30,12 +30,12 @@ const Modal = ({ isOpen, onClose, title, children, size = 'md' }) => {
 
   return (
     <div
-      className="fixed inset-0 z-[100] overflow-y-auto bg-black/50 backdrop-blur-sm"
+      className="fixed inset-0 z-[100] overflow-y-auto bg-black/50 backdrop-blur-sm flex items-center justify-center"
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
-      <div className="flex justify-center py-8 px-4 sm:px-6" style={{ minHeight: '100%' }}>
+      <div className="flex justify-center py-4 px-4 sm:px-6 w-full">
         <div
-          className={`relative bg-white rounded-xl shadow-2xl w-full ${sizeClasses[size]} h-fit animate-fade-in`}
+          className={`relative bg-white rounded-xl shadow-2xl w-full ${sizeClasses[size]} max-h-[90vh] overflow-y-auto animate-fade-in`}
         >
           {/* Header */}
           <div className="flex items-center justify-between px-6 py-4 border-b border-surface-200">
