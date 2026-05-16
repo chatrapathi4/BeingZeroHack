@@ -15,6 +15,7 @@ const adminService = {
     return api.get(`/admin/support${params}`);
   },
   updateSupportRequest: (id, data) => api.put(`/admin/support/${id}`, data),
+  getAllOrders: () => api.get('/admin/orders'),
 };
 
 export default adminService;

@@ -1,7 +1,4 @@
-// -----------------------------------------
-// Database Configuration
-// Connects to MongoDB Atlas using Mongoose
-// -----------------------------------------
+
 const mongoose = require('mongoose');
 
 const connectDB = async () => {

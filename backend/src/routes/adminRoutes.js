@@ -14,6 +14,7 @@ const {
   getAllSupportRequests,
   updateSupportRequest,
   getUserHistory,
+  getAllOrders,
 } = require('../controllers/adminController');
 
 // Apply both auth and admin middleware
@@ -27,5 +28,6 @@ router.get('/analytics', getAnalytics);
 router.get('/production', getAllProduction);
 router.get('/support', getAllSupportRequests);
 router.put('/support/:id', updateSupportRequest);
+router.get('/orders', getAllOrders);
 
 module.exports = router;

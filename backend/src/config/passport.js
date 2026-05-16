@@ -1,7 +1,4 @@
-// -----------------------------------------
-// Passport.js Google OAuth Configuration
-// Handles Google login strategy
-// -----------------------------------------
+
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const User = require('../models/User');

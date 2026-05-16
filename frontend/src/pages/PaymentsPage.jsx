@@ -190,7 +190,7 @@ const PaymentsPage = () => {
       </div>
 
       {/* Table */}
-      <div className="card p-0 overflow-hidden">
+      <div className="w-full">
         <DataTable
           columns={columns}
           data={payments}
@@ -205,10 +205,11 @@ const PaymentsPage = () => {
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         title={editingId ? 'Edit Payment' : 'Add Payment'}
+        size="lg"
       >
         <form onSubmit={handleSubmit}>
           <FormInput label="Customer Name" name="customerName" value={formData.customerName} onChange={handleChange} placeholder="Customer name" required />
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <FormInput label="Amount (Rs.)" type="number" name="amount" value={formData.amount} onChange={handleChange} placeholder="0" required />
             <FormInput label="Date" type="date" name="paymentDate" value={formData.paymentDate} onChange={handleChange} required />
           </div>
@@ -226,7 +227,7 @@ const PaymentsPage = () => {
           </div>
           <FormInput label="Notes" type="textarea" name="notes" value={formData.notes} onChange={handleChange} placeholder="Any additional notes" />
 
-          <div className="flex justify-end gap-3 mt-6">
+          <div className="flex justify-end gap-3 mt-6 pt-4 border-t border-surface-200">
             <button type="button" onClick={() => setModalOpen(false)} className="btn-secondary">
               Cancel
             </button>

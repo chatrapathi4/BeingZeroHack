@@ -173,7 +173,7 @@ const AdminDashboardPage = () => {
       </div>
 
       {/* User Management */}
-      <div className="card p-0 overflow-hidden">
+      <div className="w-full">
         <div className="px-6 py-4 border-b border-surface-200">
           <h2 className="text-lg font-semibold text-surface-800">User Management</h2>
           <p className="text-sm text-surface-500">{users.length} registered users</p>

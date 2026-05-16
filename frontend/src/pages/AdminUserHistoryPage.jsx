@@ -177,7 +177,7 @@ const AdminUserHistoryPage = () => {
       </div>
 
       {/* Recent Productions */}
-      <div className="card p-0 overflow-hidden mb-6">
+      <div className="w-full mb-6">
         <div className="px-6 py-4 border-b border-surface-200">
           <h2 className="text-lg font-semibold text-surface-800">Recent Production Entries</h2>
         </div>
@@ -191,7 +191,7 @@ const AdminUserHistoryPage = () => {
       </div>
 
       {/* Payment History */}
-      <div className="card p-0 overflow-hidden mb-6">
+      <div className="w-full mb-6">
         <div className="px-6 py-4 border-b border-surface-200">
           <h2 className="text-lg font-semibold text-surface-800">Payment History</h2>
         </div>
@@ -205,7 +205,7 @@ const AdminUserHistoryPage = () => {
       </div>
 
       {/* Support Request History */}
-      <div className="card p-0 overflow-hidden">
+      <div className="w-full">
         <div className="px-6 py-4 border-b border-surface-200">
           <h2 className="text-lg font-semibold text-surface-800">Support Request History</h2>
         </div>

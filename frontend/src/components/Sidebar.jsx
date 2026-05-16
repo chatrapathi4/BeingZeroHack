@@ -14,6 +14,7 @@ import {
   HiOutlineUser,
   HiOutlineUserGroup,
   HiOutlineChatBubbleLeftRight,
+  HiOutlineClipboardDocumentList,
   HiOutlineArrowLeftOnRectangle,
 } from 'react-icons/hi2';
 
@@ -23,6 +24,7 @@ const Sidebar = ({ isOpen, onClose }) => {
   // Navigation items for regular users
   const userNavItems = [
     { to: '/dashboard', label: 'Dashboard', icon: HiOutlineHome },
+    { to: '/orders', label: 'Orders', icon: HiOutlineClipboardDocumentList },
     { to: '/production', label: 'Production', icon: HiOutlineCube },
     { to: '/payments', label: 'Payments', icon: HiOutlineCurrencyRupee },
     { to: '/reports', label: 'Reports', icon: HiOutlineChartBar },
@@ -35,6 +37,7 @@ const Sidebar = ({ isOpen, onClose }) => {
   const adminNavItems = [
     { to: '/dashboard', label: 'Dashboard', icon: HiOutlineHome },
     { to: '/admin', label: 'Users', icon: HiOutlineUserGroup },
+    { to: '/admin/orders', label: 'Orders', icon: HiOutlineClipboardDocumentList },
     { to: '/admin/support', label: 'Support Requests', icon: HiOutlineChatBubbleLeftRight },
     { to: '/profile', label: 'Profile', icon: HiOutlineUser },
   ];

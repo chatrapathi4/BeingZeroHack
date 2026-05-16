@@ -184,7 +184,7 @@ const ProductionPage = () => {
       </div>
 
       {/* Table */}
-      <div className="card p-0 overflow-hidden">
+      <div className="w-full">
         <DataTable
           columns={columns}
           data={entries}
@@ -199,8 +199,9 @@ const ProductionPage = () => {
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         title={editingId ? 'Edit Production Entry' : 'Add Production Entry'}
+        size="lg"
       >
-        <form onSubmit={handleSubmit} className="max-w-lg mx-auto">
+        <form onSubmit={handleSubmit}>
           <FormInput label="Product Name" name="productName" value={formData.productName} onChange={handleChange} placeholder="e.g., Handwoven Basket" required />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <FormInput label="Quantity" type="number" name="quantity" value={formData.quantity} onChange={handleChange} placeholder="0" required />

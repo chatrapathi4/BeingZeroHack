@@ -133,7 +133,7 @@ const RequestsPage = () => {
       </div>
 
       {/* Table */}
-      <div className="card p-0 overflow-hidden">
+      <div className="w-full">
         <DataTable
           columns={columns}
           data={requests}
@@ -148,6 +148,7 @@ const RequestsPage = () => {
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         title="New Support Request"
+        size="lg"
       >
         <form onSubmit={handleSubmit}>
           <FormInput
@@ -182,7 +183,7 @@ const RequestsPage = () => {
             required
           />
 
-          <div className="flex justify-end gap-3 mt-6">
+          <div className="flex justify-end gap-3 mt-6 pt-4 border-t border-surface-200">
             <button
               type="button"
               onClick={() => setModalOpen(false)}

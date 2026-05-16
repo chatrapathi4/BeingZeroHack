@@ -7,6 +7,7 @@ const User = require('../models/User');
 const Production = require('../models/Production');
 const Payment = require('../models/Payment');
 const SupportRequest = require('../models/SupportRequest');
+const Order = require('../models/Order');
 
 // @desc    Get all users
 // @route   GET /api/admin/users
@@ -51,6 +52,7 @@ const deleteUser = async (req, res, next) => {
     await Production.deleteMany({ userId: user._id });
     await Payment.deleteMany({ userId: user._id });
     await SupportRequest.deleteMany({ userId: user._id });
+    await Order.deleteMany({ userId: user._id });
     await User.findByIdAndDelete(req.params.id);
 
     res.status(200).json({
@@ -69,6 +71,8 @@ const getAnalytics = async (req, res, next) => {
   try {
     const totalUsers = await User.countDocuments();
     const totalProduction = await Production.countDocuments();
+    const totalOrders = await Order.countDocuments();
+    const pendingOrders = await Order.countDocuments({ workStatus: 'pending' });
     const totalSupportRequests = await SupportRequest.countDocuments();
     const pendingSupportRequests = await SupportRequest.countDocuments({ status: 'pending' });
 
@@ -114,6 +118,8 @@ const getAnalytics = async (req, res, next) => {
       data: {
         totalUsers,
         totalProduction,
+        totalOrders,
+        pendingOrders,
         totalRevenue: revenueData[0]?.totalRevenue || 0,
         totalPending: pendingData[0]?.totalPending || 0,
         totalSupportRequests,
@@ -219,6 +225,7 @@ const getUserHistory = async (req, res, next) => {
     const totalProductions = await Production.countDocuments({ userId });
     const totalPayments = await Payment.countDocuments({ userId });
     const totalSupportRequests = await SupportRequest.countDocuments({ userId });
+    const totalOrders = await Order.countDocuments({ userId });
 
     // Earnings
     const earningsData = await Payment.aggregate([
@@ -241,6 +248,11 @@ const getUserHistory = async (req, res, next) => {
       .sort({ createdAt: -1 })
       .limit(10);
 
+    // Recent orders (last 10)
+    const recentOrders = await Order.find({ userId })
+      .sort({ createdAt: -1 })
+      .limit(10);
+
     res.status(200).json({
       success: true,
       data: {
@@ -249,12 +261,33 @@ const getUserHistory = async (req, res, next) => {
           totalProductions,
           totalPayments,
           totalSupportRequests,
+          totalOrders,
           totalEarnings: earningsData[0]?.total || 0,
         },
         recentProductions,
         recentPayments,
         recentSupportRequests,
+        recentOrders,
       },
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+// @desc    Get all orders (admin view)
+// @route   GET /api/admin/orders
+// @access  Admin
+const getAllOrders = async (req, res, next) => {
+  try {
+    const orders = await Order.find()
+      .populate('userId', 'name email')
+      .sort({ createdAt: -1 });
+
+    res.status(200).json({
+      success: true,
+      count: orders.length,
+      data: orders,
     });
   } catch (error) {
     next(error);
@@ -269,4 +302,5 @@ module.exports = {
   getAllSupportRequests,
   updateSupportRequest,
   getUserHistory,
+  getAllOrders,
 };

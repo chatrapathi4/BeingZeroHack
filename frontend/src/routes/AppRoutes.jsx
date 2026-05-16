@@ -19,9 +19,11 @@ import ReportsPage from '../pages/ReportsPage';
 import AIAnalyzerPage from '../pages/AIAnalyzerPage';
 import ProfilePage from '../pages/ProfilePage';
 import RequestsPage from '../pages/RequestsPage';
+import OrdersPage from '../pages/OrdersPage';
 import AdminDashboardPage from '../pages/AdminDashboardPage';
 import AdminSupportPage from '../pages/AdminSupportPage';
 import AdminUserHistoryPage from '../pages/AdminUserHistoryPage';
+import AdminOrdersPage from '../pages/AdminOrdersPage';
 import NotFoundPage from '../pages/NotFoundPage';
 
 const AppRoutes = () => {
@@ -52,6 +54,7 @@ const AppRoutes = () => {
         <Route path="/ai-analyzer" element={<AIAnalyzerPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/requests" element={<RequestsPage />} />
+        <Route path="/orders" element={<OrdersPage />} />
 
         {/* Admin-only routes */}
         <Route
@@ -75,6 +78,14 @@ const AppRoutes = () => {
           element={
             <ProtectedRoute adminOnly>
               <AdminUserHistoryPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/orders"
+          element={
+            <ProtectedRoute adminOnly>
+              <AdminOrdersPage />
             </ProtectedRoute>
           }
         />

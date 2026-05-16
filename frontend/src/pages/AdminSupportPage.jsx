@@ -154,7 +154,7 @@ const AdminSupportPage = () => {
       </div>
 
       {/* Table */}
-      <div className="card p-0 overflow-hidden">
+      <div className="w-full">
         <DataTable
           columns={columns}
           data={requests}
