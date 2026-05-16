@@ -50,7 +50,6 @@ const Modal = ({ isOpen, onClose, title, children, size = 'md' }) => {
           </div>
           {/* Body */}
           <div className="px-6 py-5">{children}</div>
-        </div>
       </div>
     </div>
   );
