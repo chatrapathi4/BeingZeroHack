@@ -36,7 +36,6 @@ const Sidebar = ({ isOpen, onClose }) => {
   // Admin sees a different, focused navigation
   const adminNavItems = [
     { to: '/dashboard', label: 'Dashboard', icon: HiOutlineHome },
-    { to: '/admin', label: 'Users', icon: HiOutlineUserGroup },
     { to: '/admin/orders', label: 'Orders', icon: HiOutlineClipboardDocumentList },
     { to: '/admin/support', label: 'Support Requests', icon: HiOutlineChatBubbleLeftRight },
     { to: '/profile', label: 'Profile', icon: HiOutlineUser },

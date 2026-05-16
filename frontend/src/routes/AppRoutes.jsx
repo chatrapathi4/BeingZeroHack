@@ -20,7 +20,6 @@ import AIAnalyzerPage from '../pages/AIAnalyzerPage';
 import ProfilePage from '../pages/ProfilePage';
 import RequestsPage from '../pages/RequestsPage';
 import OrdersPage from '../pages/OrdersPage';
-import AdminDashboardPage from '../pages/AdminDashboardPage';
 import AdminSupportPage from '../pages/AdminSupportPage';
 import AdminUserHistoryPage from '../pages/AdminUserHistoryPage';
 import AdminOrdersPage from '../pages/AdminOrdersPage';
@@ -57,14 +56,6 @@ const AppRoutes = () => {
         <Route path="/orders" element={<OrdersPage />} />
 
         {/* Admin-only routes */}
-        <Route
-          path="/admin"
-          element={
-            <ProtectedRoute adminOnly>
-              <AdminDashboardPage />
-            </ProtectedRoute>
-          }
-        />
         <Route
           path="/admin/support"
           element={
