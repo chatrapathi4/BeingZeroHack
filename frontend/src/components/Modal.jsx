@@ -3,6 +3,7 @@
 // Reusable modal dialog overlay
 // -----------------------------------------
 import { useEffect } from 'react';
+import ReactDOM from 'react-dom';
 
 const Modal = ({ isOpen, onClose, title, children, size = 'md' }) => {
   // Close modal on Escape key
@@ -28,7 +29,7 @@ const Modal = ({ isOpen, onClose, title, children, size = 'md' }) => {
     lg: 'max-w-2xl',
   };
 
-  return (
+  const modalContent = (
     <div
       className="fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4"
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
@@ -53,6 +54,8 @@ const Modal = ({ isOpen, onClose, title, children, size = 'md' }) => {
       </div>
     </div>
   );
+
+  return ReactDOM.createPortal(modalContent, document.body);
 };
 
 export default Modal;
